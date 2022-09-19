@@ -6,11 +6,13 @@ const Users = () => {
   useEffect(() => {
     (async () => {
       try {
-        const data = await axios.get("http://localhost:3001/person/getAll");
+        const data = await axios.get("http://localhost:3001/person/getAll", {
+          withCredentials: true,
+        });
         console.log(data);
         setUserData(data);
       } catch (error) {
-        console.error(error );
+        console.error(error);
       }
     })();
   }, []);
